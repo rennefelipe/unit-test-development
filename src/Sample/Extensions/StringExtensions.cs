@@ -1,4 +1,8 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+
 
 namespace Sample.Extensions
 {
@@ -6,8 +10,15 @@ namespace Sample.Extensions
     {
         public static bool IsValidMail(this string email)
         {
-            Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$");
-            return validateEmailRegex.IsMatch(email);
+            Regex Regex = new Regex(@"^([\w\.\-]+)((\.(\w){2,3})+)$");
+            Match match = Regex.Match(email);
+            if (match.Success)
+                return true;
+            else
+                return false;
+
+
+            //return validateEmailRegex.IsMatch(email);
         }
     }
 }

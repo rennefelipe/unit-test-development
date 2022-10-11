@@ -20,10 +20,13 @@ namespace Sample.Test.Extensions
             var expectedQtdParts = 3;
             var characterSeparatorDate = "/";
             var maxValueMonth = 12;
+            var maxValueYear = 12;
+            var maxValueHour = 12;
 
             //act
             var result = dateTest.ToStringShortPtBR();
             var resultSplit = result.Split(characterSeparatorDate);
+            
 
             //assert
             Assert.True(int.Parse(resultSplit[1]) <= maxValueMonth);
@@ -40,5 +43,9 @@ namespace Sample.Test.Extensions
             //act & assert
             Assert.Throws<ArgumentNullException>(() => dateTest.ToStringShortPtBR());
         }
+
+
+
+
     }
 }

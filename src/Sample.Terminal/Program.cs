@@ -9,11 +9,12 @@ namespace Sample.Terminal
         {
             //var dateNow = DateTime.Now;
             //double valuePayment = 100.54;
-            var emailValue = "teste.teste.com";
 
+            //var emailValue = "teste.teste.com";
             //Console.WriteLine(dateNow.ToStringShortPtBR());
+
             //Console.WriteLine(valuePayment.ToStringMoneyPtBR());
-            Console.WriteLine(emailValue.IsValidMail());
+            //Console.WriteLine(emailValue.IsValidMail());
         }
     }
 }

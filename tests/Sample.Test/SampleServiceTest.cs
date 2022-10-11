@@ -1,4 +1,9 @@
 ﻿using Xunit;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using Sample.Extensions;
 
 namespace Sample.Test
 {
@@ -49,10 +54,10 @@ namespace Sample.Test
         }
 
         [Theory]
+        [InlineData(-4)]
         [InlineData(-5)]
-        [InlineData(-3)]
-        [InlineData(-1)]
-        [InlineData(1)]
+        [InlineData(0)]
+        [InlineData(2)]
         public void IsEven_ValuesLessThan3_ReturnFalse(int value)
         {
             //act (chamada do método a ser testado, logo a unidade)
@@ -63,10 +68,10 @@ namespace Sample.Test
         }
 
         [Theory]
-        [InlineData(-5)]
+        [InlineData(-2)]
         [InlineData(-3)]
         [InlineData(-1)]
-        [InlineData(1)]
+
         public void IsOdd_ValuesLessThan3_ReturnTrue(int value)
         {
             //act (chamada do método a ser testado, logo a unidade)
@@ -112,6 +117,48 @@ namespace Sample.Test
 
             Assert.True(result, $"{value} should be prime");
         }
+
+        [Fact]
+        public void IsMailValid_ReturnTrue()
+        {
+            //arrange
+            var mail = "@rennefelipe@outlook.com.br";
+
+
+            //act
+            var result = mail.IsValidMail();
+
+            //assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void IsMailValid_ReturnFalse()
+        {
+            //arrange
+            var mail = "@rennefelipe@outlook.com.br";
+
+
+            //act
+            var result = mail.IsValidMail();
+
+            //assert
+            Assert.True(result);
+        }
+
+        [Fact]
+
+        public void IsDateValid_Returntrue()
+        {
+            var date = DateTime.Now;
+            var result = date.ToStringShortPtBR();
+
+        }
+
+
+
+
+
 
     }
 }
